@@ -1,105 +1,143 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import '../styles/global.css';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/global.css";
 ---
 
 <BaseLayout>
-  <!-- Navigation (minimal, sticky) -->
-  <nav class="fixed top-0 w-full bg-[var(--color-cream)] border-b border-[var(--color-accent-light)] z-50">
-    <div class="container py-4 flex justify-between items-center">
-      <a href="/" class="text-lg font-serif">The Somatic Space</a>
-      <div class="flex gap-6 text-sm">
-        <a href="#sessions">Sessions</a>
-        <a href="#about">About</a>
-        <a href="#inquire">Inquire</a>
-      </div>
+  <!-- Hero Section -->
+  <section id="hero" class="hero snap-section">
+    <!-- Background Image -->
+    <div class="hero-background">
+      <img
+        src="https://images.unsplash.com/photo-1517495306984-f84210f9daa8?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
+      />
     </div>
+
+    <!-- Logo -->
+    <div class="hero-logo">
+      <a href="#hero">
+        <img
+          src="/the_somatic_space_logo.svg"
+          alt="The Somatic Space logo"
+        />
+      </a>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+
+      <p class="hero-eyebrow">ONE-ON-ONE SOMATIC WORK</p>
+
+      <h1 class="hero-title">
+        Matter Over Mind
+      </h1>
+
+      <div class="hero-line"></div>
+
+      <p class="hero-description">
+        Sessions are slow, contained, and experiential — working directly with sensation, pacing, and co-regulation to support the body's innate capacity to heal and integrate.
+      </p>
+
+      <a href="#inquire" class="hero-cta">
+        Inquire about sessions
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="hero-scroll">
+      <a href="#about">
+        <span>SCROLL DOWN</span>
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Section Navigation Dots -->
+  <nav class="section-nav" aria-label="Section navigation">
+    <a href="#hero" class="nav-dot active" aria-label="Hero"></a>
+    <a href="#about" class="nav-dot" aria-label="About"></a>
+    <a href="#sessions" class="nav-dot" aria-label="Sessions"></a>
+    <a href="#who-this-is-for" class="nav-dot" aria-label="Who this is for"></a>
+    <a href="#inquire" class="nav-dot" aria-label="Inquire"></a>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="hero" class="section pt-32 md:pt-40 pb-24 md:pb-32">
+  <!-- About Section (First after hero) -->
+  <section id="about" class="section snap-section bg-white">
     <div class="container">
-      <div class="max-w-4xl mx-auto text-center space-y-8">
-        <h1 class="mb-6">The Somatic Space</h1>
+      <div class="content-center">
+        <h2 class="mb-12">About Francesco Mello</h2>
 
-        <p class="text-xl md:text-2xl text-[var(--color-text-secondary)] font-light">
-          One-on-one somatic work for nervous system regulation and integration.
-        </p>
-
-        <!-- Mantra block -->
-        <div class="my-12 md:my-16 p-8 md:p-12 border border-[var(--color-accent-light)] bg-[var(--color-warm-gray)]">
-          <p class="text-xl md:text-2xl font-serif leading-relaxed">
-            Healing isn't mind over matter — it's matter over mind.
+        <div class="space-y-8 text-large">
+          <p>
+            My work is grounded in a simple orientation: the body leads.
+            Regulation and healing happen when the nervous system has enough
+            safety and capacity to experience what's present without overwhelm.
+            I offer a container for that process to unfold — slowly,
+            respectfully, and without force.
           </p>
-          <p class="text-xl md:text-2xl font-serif leading-relaxed mt-4">
-            You can't simply tell your body that you're safe. You need to get out of your mind and into your senses.
-          </p>
-        </div>
 
-        <div class="max-w-2xl mx-auto">
-          <p class="text-lg text-[var(--color-text-secondary)]">
-            Sessions are slow, contained, and experiential — working directly with sensation, pacing, and co-regulation to support the body's innate capacity to heal and integrate.
+          <p
+            class="text-secondary pt-6"
+          >
+            I'm not here to fix you. I'm here to help create the conditions in
+            which your system can heal.
           </p>
-        </div>
-
-        <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
-          <a href="#inquire" class="button">Inquire about sessions</a>
-          <a href="#how-it-works" class="text-[var(--color-accent)] hover:text-[var(--color-text-primary)] transition-colors">
-            Learn how this work unfolds →
-          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- What This Is Section -->
-  <section id="what-this-is" class="section bg-white">
+  <section id="what-this-is" class="section bg-warm">
     <div class="container">
-      <div class="max-w-3xl mx-auto space-y-8">
-        <p class="text-lg leading-relaxed">
-          This is healing-oriented, body-based work focused on the nervous system. We track present-moment sensation and support regulation through pacing, attunement, and (when appropriate) gentle, sustained touch. Rather than forcing release or insight, sessions create the conditions for the system to settle and reorganize naturally.
+      <div class="content-center space-y-10">
+        <p class="text-large">
+          This is healing-oriented, body-based work focused on the nervous
+          system. We track present-moment sensation and support regulation
+          through pacing, attunement, and (when appropriate) gentle, sustained
+          touch. Rather than forcing release or insight, sessions create the
+          conditions for the system to settle and reorganize naturally.
         </p>
 
-        <div class="space-y-4 mt-8 pl-6 border-l-2 border-[var(--color-accent-light)]">
-          <p class="text-[var(--color-text-secondary)]">One-on-one only. No groups.</p>
-          <p class="text-[var(--color-text-secondary)]">Experiential and body-based, not performance-based.</p>
-          <p class="text-[var(--color-text-secondary)]">Client-led pacing. Nothing is forced.</p>
+        <div class="space-y-3">
+          <p class="text-secondary">
+            One-on-one only. No groups.
+          </p>
+          <p class="text-secondary">
+            Experiential and body-based, not performance-based.
+          </p>
+          <p class="text-secondary">
+            Client-led pacing. Nothing is forced.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- How Sessions Unfold Section -->
-  <section id="how-it-works" class="section">
+  <section id="how-it-works" class="section bg-cream">
     <div class="container">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="mb-12 text-center">How sessions unfold</h2>
+      <div class="content-center">
+        <h2 class="mb-12">How sessions unfold</h2>
 
         <div class="space-y-6">
-          <div class="flex gap-4">
-            <div class="text-[var(--color-accent)] mt-1">•</div>
-            <p>Brief arrival and check-in (what's present in the body lately)</p>
-          </div>
-          <div class="flex gap-4">
-            <div class="text-[var(--color-accent)] mt-1">•</div>
-            <p>Grounding and orientation to safety and the room</p>
-          </div>
-          <div class="flex gap-4">
-            <div class="text-[var(--color-accent)] mt-1">•</div>
-            <p>Tracking sensation and nervous system shifts in real time</p>
-          </div>
-          <div class="flex gap-4">
-            <div class="text-[var(--color-accent)] mt-1">•</div>
-            <p>Titration and pacing to stay within capacity</p>
-          </div>
-          <div class="flex gap-4">
-            <div class="text-[var(--color-accent)] mt-1">•</div>
-            <p>Closing integration and resourcing to support what unfolds after session</p>
-          </div>
+          <p>Brief arrival and check-in (what's present in the body lately)</p>
+          <p>Grounding and orientation to safety and the room</p>
+          <p>Tracking sensation and nervous system shifts in real time</p>
+          <p>Titration and pacing to stay within capacity</p>
+          <p>
+            Closing integration and resourcing to support what unfolds after
+            session
+          </p>
         </div>
 
-        <p class="mt-10 text-center text-[var(--color-text-secondary)] italic">
+        <p class="mt-10 text-secondary">
           You remain in control of pace and depth throughout.
         </p>
       </div>
@@ -107,30 +145,41 @@ import '../styles/global.css';
   </section>
 
   <!-- Sessions Section -->
-  <section id="sessions" class="section bg-white">
+  <section id="sessions" class="section snap-section bg-sand">
     <div class="container">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="mb-16 text-center">Sessions</h2>
+      <div class="content-large">
+        <h2 class="mb-16">Sessions</h2>
 
-        <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+        <div class="grid-2">
           <!-- Session Type A -->
-          <div class="space-y-4 p-8 border border-[var(--color-accent-light)]">
-            <h3 class="font-serif">Somatic Regulation & Integration (Non-Touch)</h3>
-            <p class="text-[var(--color-text-secondary)]">
-              A guided, body-based session without physical contact. We work with attention, sensation, and nervous system pacing to support regulation, capacity, and integration. This is ideal if you want somatic work in a seated format or prefer non-touch sessions.
+          <div class="card space-y-3 py-8 px-10">
+            <h3 class="font-serif">
+              Somatic Regulation & Integration (Non-Touch)
+            </h3>
+            <p class="text-secondary">
+              A guided, body-based session without physical contact. We work
+              with attention, sensation, and nervous system pacing to support
+              regulation, capacity, and integration. This is ideal if you want
+              somatic work in a seated format or prefer non-touch sessions.
             </p>
           </div>
 
           <!-- Session Type B -->
-          <div class="space-y-4 p-8 border border-[var(--color-accent-light)]">
+          <div class="card space-y-3 py-8 px-10">
             <h3 class="font-serif">Somatic Point-Holding (Touch-Based)</h3>
-            <p class="text-[var(--color-text-secondary)]">
-              A table-based session using gentle, sustained manual contact to support co-regulation and parasympathetic settling. Touch is used as containment and support — not manipulation or treatment. The session follows the body's internal cues in stillness and attunement.
+            <p class="text-secondary">
+              A table-based session using gentle, sustained manual contact to
+              support co-regulation and parasympathetic settling. Touch is used
+              as containment and support — not manipulation or treatment. The
+              session follows the body's internal cues in stillness and
+              attunement.
             </p>
           </div>
         </div>
 
-        <p class="mt-10 text-center text-[var(--color-text-secondary)] italic">
+        <p
+          class="mt-12 text-secondary"
+        >
           Rates and availability shared upon inquiry.
         </p>
       </div>
@@ -138,97 +187,110 @@ import '../styles/global.css';
   </section>
 
   <!-- Who This Is For Section -->
-  <section id="who-this-is-for" class="section">
+  <section id="who-this-is-for" class="section snap-section bg-white">
     <div class="container">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="mb-12 text-center">Who this work supports</h2>
+      <div class="content-center">
+        <h2 class="mb-12">Who this work supports</h2>
 
-        <p class="text-lg mb-8">
-          This work is often supportive for people who feel stuck in chronic stress patterns, overwhelm, shutdown, or disconnection from the body — especially when insight and talk alone haven't created lasting change.
+        <p class="text-large mb-8">
+          This work is often supportive for people who feel stuck in chronic
+          stress patterns, overwhelm, shutdown, or disconnection from the body —
+          especially when insight and talk alone haven't created lasting change.
         </p>
 
-        <div class="space-y-4 pl-6 border-l-2 border-[var(--color-accent-light)]">
-          <p class="text-[var(--color-text-secondary)]">Chronic stress, tension, or nervous system overwhelm</p>
-          <p class="text-[var(--color-text-secondary)]">Feeling "stuck in your head" or disconnected from sensation</p>
-          <p class="text-[var(--color-text-secondary)]">Difficulty settling, resting, or feeling safe in the body</p>
-          <p class="text-[var(--color-text-secondary)]">Wanting a contained, one-on-one space for embodied healing</p>
+        <div class="space-y-4">
+          <p class="text-secondary">
+            Chronic stress, tension, or nervous system overwhelm
+          </p>
+          <p class="text-secondary">
+            Feeling "stuck in your head" or disconnected from sensation
+          </p>
+          <p class="text-secondary">
+            Difficulty settling, resting, or feeling safe in the body
+          </p>
+          <p class="text-secondary">
+            Wanting a contained, one-on-one space for embodied healing
+          </p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Scope Section -->
-  <section id="scope" class="section bg-white">
+  <section id="scope" class="section bg-warm">
     <div class="container">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="mb-8 text-center">Scope</h2>
+      <div class="content-center">
+        <h2 class="mb-12">Scope</h2>
 
-        <p class="text-lg mb-6">
-          This work is not psychotherapy or medical treatment. I do not diagnose or treat mental illness. Sessions are healing-oriented and body-based, focused on regulation, capacity, and integration.
+        <p class="text-large mb-8">
+          This work is not psychotherapy or medical treatment. I do not diagnose
+          or treat mental illness. Sessions are healing-oriented and body-based,
+          focused on regulation, capacity, and integration.
         </p>
 
-        <p class="text-[var(--color-text-secondary)] italic">
-          If you are currently in acute crisis or need clinical mental health care, I may recommend working alongside a licensed provider.
+        <p class="text-secondary">
+          If you are currently in acute crisis or need clinical mental health
+          care, I may recommend working alongside a licensed provider.
         </p>
       </div>
     </div>
   </section>
 
   <!-- Training Section -->
-  <section id="training" class="section">
+  <section id="training" class="section bg-cream">
     <div class="container">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="mb-10 text-center">Training & Background</h2>
+      <div class="content-center">
+        <h2 class="mb-10">Training & Background</h2>
 
-        <div class="space-y-3 max-w-2xl mx-auto">
-          <div class="flex gap-4">
-            <div class="text-[var(--color-accent)] mt-1">•</div>
-            <p>Somatic Institute — Somatic Integration & Point-Holding</p>
-          </div>
-          <div class="flex gap-4">
-            <div class="text-[var(--color-accent)] mt-1">•</div>
-            <p>Mindfulness-Based Stress Reduction (MBSR) — Insight LA Meditation Center</p>
-          </div>
-          <div class="flex gap-4">
-            <div class="text-[var(--color-accent)] mt-1">•</div>
-            <p>Advanced training in polyvagal theory & vagal toning</p>
-          </div>
-          <div class="flex gap-4">
-            <div class="text-[var(--color-accent)] mt-1">•</div>
-            <p>Qigong Instructor training — Fang Yuan TaiChi Centre (China)</p>
-          </div>
+        <div class="space-y-3 content-medium">
+          <p>Somatic Institute — Somatic Integration & Point-Holding</p>
+          <p>
+            Mindfulness-Based Stress Reduction (MBSR) — Insight LA Meditation
+            Center
+          </p>
+          <p>
+            Advanced nervous system regulation & vagal toning - SHEBreath Echoes of Safety
+            Program
+          </p>
+          <p>Qigong Instructor training — Fang Yuan TaiChi Centre (China)</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Setting Section -->
-  <section id="setting" class="section bg-white">
+  <section id="setting" class="section bg-sand">
     <div class="container">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="mb-8">Setting</h2>
-        <p class="text-lg">
-          Sessions are offered by appointment in a private, quiet studio environment. Details are shared after scheduling.
+      <div class="content-center">
+        <h2 class="mb-10">Setting</h2>
+        <p class="text-large">
+          Sessions are offered by appointment in a private, quiet studio
+          environment. Details are shared after scheduling.
         </p>
       </div>
     </div>
   </section>
 
   <!-- Testimonials Section -->
-  <section id="testimonials" class="section">
+  <section id="testimonials" class="section bg-white">
     <div class="container">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="mb-12 text-center">Words from clients</h2>
+      <div class="content-center">
+        <h2 class="mb-14">Words from clients</h2>
 
-        <div class="text-center text-[var(--color-text-secondary)] italic max-w-2xl mx-auto">
-          <p>Testimonials will be added here as the practice grows. Early work is referral-based and grounded in trust.</p>
+        <div
+          class="content-medium text-secondary"
+        >
+          <p>
+            Testimonials will be added here as the practice grows. Early work is
+            referral-based and grounded in trust.
+          </p>
         </div>
 
         <!-- Example testimonial structure (commented out for when you have testimonials)
         <div class="space-y-8">
-          <div class="p-8 border border-[var(--color-accent-light)] bg-[var(--color-warm-gray)]">
-            <p class="text-lg mb-4">"Testimonial text here..."</p>
-            <p class="text-sm text-[var(--color-text-secondary)]">— First Name L.</p>
+          <div class="card py-10 px-12">
+            <p class="text-large">"Testimonial text here..."</p>
+            <p class="text-secondary">— First Name L.</p>
           </div>
         </div>
         -->
@@ -236,37 +298,27 @@ import '../styles/global.css';
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="section bg-white">
-    <div class="container">
-      <div class="max-w-3xl mx-auto">
-        <h2 class="mb-10 text-center">About Francesco Mello</h2>
-
-        <div class="space-y-6 text-lg">
-          <p>
-            My work is grounded in a simple orientation: the body leads. Regulation and healing happen when the nervous system has enough safety and capacity to experience what's present without overwhelm. I offer a container for that process to unfold — slowly, respectfully, and without force.
-          </p>
-
-          <p class="text-center italic text-[var(--color-text-secondary)] pt-6">
-            I'm not here to fix you. I'm here to help create the conditions in which your system can heal.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Contact/Inquiry Section -->
-  <section id="inquire" class="section pb-32">
+  <section id="inquire" class="section snap-section bg-warm">
     <div class="container">
-      <div class="max-w-2xl mx-auto">
+      <div class="content-medium">
         <h2 class="mb-8 text-center">Inquire</h2>
 
-        <p class="text-lg mb-12 text-center text-[var(--color-text-secondary)]">
-          If you're interested in working together, send a brief note about what you're looking for and your general availability. I'll respond with next steps, rates, and scheduling options.
+        <p class="text-large mb-12 text-secondary text-center">
+          If you're interested in working together, send a brief note about what
+          you're looking for and your general availability. I'll respond with
+          next steps, rates, and scheduling options.
         </p>
 
         <!-- Netlify Form -->
-        <form name="inquiry" method="POST" action="/success" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
+        <form
+          name="inquiry"
+          method="POST"
+          action="/success"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="inquiry-form"
+        >
           <!-- Hidden fields for Netlify -->
           <input type="hidden" name="form-name" value="inquiry" />
           <p class="hidden">
@@ -276,17 +328,22 @@ import '../styles/global.css';
           </p>
 
           <div>
-            <label for="name" class="block mb-2 text-sm font-medium">Name</label>
+            <label for="name">Name</label
+            >
             <input type="text" id="name" name="name" required />
           </div>
 
           <div>
-            <label for="email" class="block mb-2 text-sm font-medium">Email</label>
+            <label for="email"
+              >Email</label
+            >
             <input type="email" id="email" name="email" required />
           </div>
 
           <div>
-            <label for="session-type" class="block mb-2 text-sm font-medium">Preferred session type</label>
+            <label for="session-type"
+              >Preferred session type</label
+            >
             <select id="session-type" name="session-type" required>
               <option value="">Select an option</option>
               <option value="non-touch">Non-touch</option>
@@ -296,28 +353,577 @@ import '../styles/global.css';
           </div>
 
           <div>
-            <label for="availability" class="block mb-2 text-sm font-medium">Availability</label>
-            <input type="text" id="availability" name="availability" placeholder="e.g., Weekday mornings, Tuesday/Thursday afternoons" />
+            <label for="availability"
+              >Availability</label
+            >
+            <input
+              type="text"
+              id="availability"
+              name="availability"
+              placeholder="e.g., Weekday mornings, Tuesday/Thursday afternoons"
+            />
           </div>
 
           <div>
-            <label for="message" class="block mb-2 text-sm font-medium">Message</label>
-            <textarea id="message" name="message" required placeholder="Tell me a bit about what you're looking for..."></textarea>
+            <label for="message"
+              >Message</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              required
+              placeholder="Tell me a bit about what you're looking for..."
+            ></textarea>
           </div>
 
-          <button type="submit" class="button w-full sm:w-auto">Send inquiry</button>
+          <button type="submit" class="button"
+            >Send inquiry</button
+          >
         </form>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-[var(--color-accent-light)] py-12 bg-white">
+  <footer class="py-14 bg-cream">
     <div class="container">
-      <div class="text-center space-y-4 text-sm text-[var(--color-text-secondary)]">
-        <p>© The Somatic Space — Francesco Mello</p>
-        <p class="italic">This work is not psychotherapy or medical treatment.</p>
+      <div
+        class="footer-content"
+      >
+        <p class="font-serif">© The Somatic Space — Francesco Mello</p>
+        <p class="italic font-serif">
+          This work is not psychotherapy or medical treatment.
+        </p>
       </div>
     </div>
   </footer>
 </BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+  }
+
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-logo {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+  }
+
+  .hero-logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero-logo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 768px) {
+    .hero-logo {
+      top: 1rem;
+    }
+
+    .hero-logo a {
+      width: 120px;
+      height: 120px;
+      padding: 0.5rem;
+    }
+  }
+
+  .hero-content {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    max-width: 48rem;
+    padding: 2rem;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @media (min-width: 768px) {
+    .hero-content {
+      padding-left: 8rem;
+      padding-right: 4rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-content {
+      padding-left: 10rem;
+    }
+  }
+
+  
+
+  .hero-eyebrow {
+    color: white;
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 300;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  .hero-title {
+    color: white;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 2.5rem;
+    text-align: left;
+  }
+
+  .hero-line {
+    width: 8rem;
+    height: 2px;
+    background: white;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-description {
+    color: white;
+    font-size: clamp(1.125rem, 2vw, 1.25rem);
+    font-weight: 300;
+    line-height: 1.65;
+    max-width: 40rem;
+    opacity: 0.95;
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+    text-align: left;
+  }
+
+  .hero-cta:hover {
+    opacity: 0.7;
+  }
+
+  .hero-cta svg {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    z-index: 20;
+  }
+
+  .hero-scroll a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+  }
+
+  .hero-scroll span {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  .hero-scroll svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    opacity: 0.8;
+    animation: bounce 1s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(0.5rem);
+    }
+  }
+
+  /* Common utility classes */
+  .section {
+    padding-top: var(--spacing-section-mobile);
+    padding-bottom: var(--spacing-section-mobile);
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding-top: var(--spacing-section);
+      padding-bottom: var(--spacing-section);
+    }
+  }
+
+  .container {
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* Layout utilities */
+  .content-center {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .content-medium {
+    max-width: 56rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .content-large {
+    max-width: 64rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Text utilities */
+  .text-secondary {
+    color: var(--color-text-secondary);
+  }
+
+  .text-large {
+    font-size: 1.125rem;
+  }
+
+  /* Spacing utilities */
+  .space-y-3 > * + * {
+    margin-top: 0.75rem;
+  }
+
+  .space-y-4 > * + * {
+    margin-top: 1rem;
+  }
+
+  .space-y-6 > * + * {
+    margin-top: 1.5rem;
+  }
+
+  .space-y-8 > * + * {
+    margin-top: 2rem;
+  }
+
+  .space-y-10 > * + * {
+    margin-top: 2.5rem;
+  }
+
+  .mb-8 {
+    margin-bottom: 2rem;
+  }
+
+  .mb-10 {
+    margin-bottom: 2.5rem;
+  }
+
+  .mb-12 {
+    margin-bottom: 3rem;
+  }
+
+  .mb-14 {
+    margin-bottom: 3.5rem;
+  }
+
+  .mb-16 {
+    margin-bottom: 4rem;
+  }
+
+  .mt-10 {
+    margin-top: 2.5rem;
+  }
+
+  .mt-12 {
+    margin-top: 3rem;
+  }
+
+  .pt-6 {
+    padding-top: 1.5rem;
+  }
+
+  .py-8 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .py-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .py-14 {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
+  .px-12 {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  /* Grid */
+  .grid-2 {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .grid-2 {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3.5rem;
+    }
+  }
+
+  /* Card */
+  .card {
+    border: 1px solid var(--color-accent-light);
+    text-align: center;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--color-accent-light);
+  }
+
+  footer .footer-content {
+    text-align: center;
+  }
+
+  footer .footer-content > * + * {
+    margin-top: 0.75rem;
+  }
+
+  footer .footer-content {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  /* Form */
+  form.inquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  form.inquiry-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .button {
+      width: auto;
+    }
+  }
+
+  /* Background colors */
+  .bg-white {
+    background-color: var(--bg-light);
+  }
+
+  .bg-cream {
+    background-color: var(--bg-cream);
+  }
+
+  .bg-warm {
+    background-color: var(--bg-warm);
+  }
+
+  .bg-sand {
+    background-color: var(--bg-sand);
+  }
+
+  /* Text alignment */
+  .text-center {
+    text-align: center;
+  }
+
+  /* Typography helpers */
+  .font-serif {
+    font-family: var(--font-family-serif);
+  }
+
+  .italic {
+    font-style: italic;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+
+  .leading-relaxed {
+    line-height: 1.65;
+  }
+
+  /* Scroll Snap Sections */
+  .snap-section {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    align-items: center;
+  }
+
+  .snap-section > .container {
+    width: 100%;
+  }
+
+  /* Section Navigation Dots */
+  .section-nav {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .section-nav {
+      right: 1rem;
+      gap: 0.75rem;
+    }
+  }
+
+  .nav-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .nav-dot:hover {
+    border-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.2);
+  }
+
+  .nav-dot.active {
+    background: white;
+    border-color: white;
+  }
+
+  /* Dark dots for light sections */
+  .nav-dot.dark {
+    border-color: rgba(45, 41, 38, 0.4);
+  }
+
+  .nav-dot.dark:hover {
+    border-color: rgba(45, 41, 38, 0.7);
+  }
+
+  .nav-dot.dark.active {
+    background: var(--color-text-primary);
+    border-color: var(--color-text-primary);
+  }
+</style>
+
+<script>
+  // Update active navigation dot on scroll
+  function updateActiveDot() {
+    const sections = document.querySelectorAll('.snap-section');
+    const navDots = document.querySelectorAll('.nav-dot');
+
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+    sections.forEach((section, index) => {
+      const sectionTop = section.offsetTop;
+      const sectionBottom = sectionTop + section.offsetHeight;
+
+      if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+        navDots.forEach(dot => dot.classList.remove('active'));
+        if (navDots[index]) {
+          navDots[index].classList.add('active');
+        }
+
+        // Update dot color based on section background
+        const isLight = section.classList.contains('bg-white') ||
+                       section.classList.contains('bg-cream') ||
+                       section.classList.contains('bg-warm') ||
+                       section.classList.contains('bg-sand');
+
+        navDots.forEach(dot => {
+          if (isLight) {
+            dot.classList.add('dark');
+          } else {
+            dot.classList.remove('dark');
+          }
+        });
+      }
+    });
+  }
+
+  // Update on scroll
+  window.addEventListener('scroll', updateActiveDot);
+
+  // Update on load
+  window.addEventListener('load', updateActiveDot);
+</script>

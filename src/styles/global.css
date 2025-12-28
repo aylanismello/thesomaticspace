@@ -1,21 +1,27 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-@theme {
+:root {
   /* Color palette - calm, neutral, warm */
-  --color-cream: #faf8f5;
-  --color-warm-gray: #f5f1ec;
-  --color-text-primary: #2a2520;
-  --color-text-secondary: #5a534d;
+  --color-cream: #fdfcfa;
+  --color-warm-gray: #f8f6f3;
+  --color-text-primary: #2d2926;
+  --color-text-secondary: #6b6560;
   --color-accent: #8b7d6b;
-  --color-accent-light: #b5a99a;
+  --color-accent-light: #d4cdc4;
 
-  /* Typography - using system fonts for now, can add custom fonts later */
-  --font-family-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-family-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Section backgrounds */
+  --bg-light: #ffffff;
+  --bg-cream: #fdfcfa;
+  --bg-warm: #f8f6f3;
+  --bg-sand: #f5f3f0;
+
+  /* Typography - elegant serif + modern sans */
+  --font-family-serif: 'Crimson Text', ui-serif, Georgia, serif;
+  --font-family-sans: 'Inter', ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* Spacing scale - generous whitespace */
-  --spacing-section: 6rem;
-  --spacing-section-mobile: 4rem;
+  --spacing-section: 7rem;
+  --spacing-section-mobile: 4.5rem;
 }
 
 /* Base styles */
@@ -27,40 +33,51 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
 }
 
 body {
   font-family: var(--font-family-sans);
   color: var(--color-text-primary);
   background-color: var(--color-cream);
-  line-height: 1.7;
+  line-height: 1.65;
   font-size: 1.0625rem;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
 }
 
 /* Typography hierarchy */
 h1, h2, h3 {
-  font-family: var(--font-family-serif);
-  font-weight: 400;
-  line-height: 1.2;
+  font-family: var(--font-family-sans);
+  font-weight: 600;
+  line-height: 1.15;
   color: var(--color-text-primary);
+  text-align: center;
 }
 
 h1 {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-size: clamp(3rem, 6vw, 4.5rem);
   letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-  letter-spacing: -0.01em;
+  font-size: clamp(1.875rem, 4vw, 2.75rem);
+  letter-spacing: -0.015em;
 }
 
 h3 {
-  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+  font-weight: 600;
 }
 
 p {
-  max-width: 65ch;
+  max-width: 68ch;
+  line-height: 1.65;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 /* Links */
@@ -76,15 +93,17 @@ a:hover {
 
 /* Buttons */
 button, .button {
-  font-family: var(--font-family-sans);
-  font-size: 1rem;
-  padding: 1rem 2rem;
-  border: 1px solid var(--color-text-primary);
+  font-family: var(--font-family-serif);
+  font-size: 1.0625rem;
+  font-weight: 400;
+  padding: 0.875rem 2rem;
+  border: 1.5px solid var(--color-text-primary);
   background-color: transparent;
   color: var(--color-text-primary);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
   display: inline-block;
+  letter-spacing: 0.01em;
 }
 
 button:hover, .button:hover {
@@ -96,12 +115,14 @@ button:hover, .button:hover {
 input, textarea, select {
   font-family: var(--font-family-sans);
   font-size: 1rem;
+  font-weight: 300;
   padding: 0.875rem 1rem;
   border: 1px solid var(--color-accent-light);
-  background-color: white;
+  background-color: #ffffff;
   color: var(--color-text-primary);
   width: 100%;
   transition: border-color 0.2s ease;
+  border-radius: 0;
 }
 
 input:focus, textarea:focus, select:focus {
@@ -112,6 +133,12 @@ input:focus, textarea:focus, select:focus {
 textarea {
   resize: vertical;
   min-height: 8rem;
+  line-height: 1.6;
+}
+
+label {
+  font-weight: 400;
+  color: var(--color-text-primary);
 }
 
 /* Utility classes */
