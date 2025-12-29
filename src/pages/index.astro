@@ -68,27 +68,32 @@ import "../styles/global.css";
   </nav>
 
   <!-- About Section (First after hero) -->
-  <section id="about" class="section snap-section bg-white">
-    <div class="container">
-      <div class="content-center">
-        <h2 class="mb-12">About Francesco Mello</h2>
+  <section id="about" class="section snap-section about-section">
+    <div class="about-container">
+      <div class="about-image">
+        <img src="/aylan_tree.jpg" alt="Francesco Mello" />
+      </div>
 
-        <div class="space-y-8 text-large">
-          <p>
-            My work is grounded in a simple orientation: the body leads.
-            Regulation and healing happen when the nervous system has enough
-            safety and capacity to experience what's present without overwhelm.
-            I offer a container for that process to unfold — slowly,
-            respectfully, and without force.
-          </p>
+      <div class="about-content">
+        <p>
+          I'm Francesco Mello, a practitioner offering <span class="text-accent">somatic work</span> focused on nervous system regulation and integration.
+        </p>
 
-          <p
-            class="text-secondary pt-6"
-          >
-            I'm not here to fix you. I'm here to help create the conditions in
-            which your system can heal.
-          </p>
-        </div>
+        <p>
+          In a world tangled in chronic overthinking, this work invites you to return to sensation and to Self, the heart-belly place of deep knowing.
+        </p>
+
+        <p>
+          I guide individuals through the gentle unwinding of patterns held in the autonomic nervous system. Because overwhelm isn't what happens to us, but what happens inside of us as a result, this work tends directly to the residue—the protective patterns that once kept us safe but now shroud our aliveness.
+        </p>
+
+        <p>
+          Through integrative, body-led sessions, we begin to learn the language of your nervous system. We create space for what was once held in tension to move, soften, and release.
+        </p>
+
+        <p>
+          In the space that emerges, we reconnect with your aliveness and a deeper sense of self—the core of you that lives beneath the imprint of survival.
+        </p>
       </div>
     </div>
   </section>
@@ -430,7 +435,7 @@ import "../styles/global.css";
     align-items: center;
     justify-content: center;
     background: white;
-    padding: 0.5rem;
+    padding: 0.25rem;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
     width: 160px;
     height: 160px;
@@ -451,7 +456,7 @@ import "../styles/global.css";
     .hero-logo a {
       width: 120px;
       height: 120px;
-      padding: 0.5rem;
+      padding: 0.25rem;
     }
   }
 
@@ -816,6 +821,66 @@ import "../styles/global.css";
 
   .leading-relaxed {
     line-height: 1.65;
+  }
+
+  /* About Section */
+  .about-section {
+    background-color: #f5ebe5;
+  }
+
+  .about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  @media (min-width: 1024px) {
+    .about-container {
+      flex-direction: row;
+      gap: 5rem;
+      align-items: flex-start;
+      padding: 4rem 3rem;
+    }
+  }
+
+  .about-image {
+    flex-shrink: 0;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (min-width: 1024px) {
+    .about-image {
+      width: 350px;
+    }
+  }
+
+  .about-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .about-content p {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.7;
+    color: var(--color-text-primary);
+    text-align: left;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .text-accent {
+    color: #d4524d;
+    font-weight: 500;
   }
 
   /* Scroll Snap Sections */
