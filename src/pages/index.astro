@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
+import { credentials, testimonials, sessionTypes, navSections } from "../content/data.js";
 ---
 
 <BaseLayout>
@@ -14,15 +15,22 @@ import "../styles/global.css";
       />
     </div>
 
-    <!-- Logo -->
-    <div class="hero-logo">
-      <a href="#hero">
-        <img
-          src="/the_somatic_space_logo.svg"
-          alt="The Somatic Space logo"
-        />
-      </a>
-    </div>
+    <!-- Unified Navigation -->
+    <nav class="unified-nav">
+      <div class="nav-content">
+        <div class="nav-logo">
+          <a href="/">
+            <img src="/the_somatic_space_logo.svg" alt="The Somatic Space" />
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="/" class="nav-link active">Home</a>
+          <a href="/sessions" class="nav-link">Sessions</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/approach" class="nav-link">Approach</a>
+        </div>
+      </div>
+    </nav>
 
     <!-- Hero Content -->
     <div class="hero-content">
@@ -39,7 +47,7 @@ import "../styles/global.css";
         Sessions are slow, contained, and experiential — working directly with sensation, pacing, and co-regulation to support the body's innate capacity to heal and integrate.
       </p>
 
-      <a href="#inquire" class="hero-cta">
+      <a href="#inquire" class="hero-cta-link">
         Inquire about sessions
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -50,7 +58,7 @@ import "../styles/global.css";
     <!-- Scroll Indicator -->
     <div class="hero-scroll">
       <a href="#about">
-        <span>SCROLL DOWN</span>
+        <span>LEARN MORE</span>
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
           <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path>
         </svg>
@@ -60,259 +68,172 @@ import "../styles/global.css";
 
   <!-- Section Navigation Dots -->
   <nav class="section-nav" aria-label="Section navigation">
-    <a href="#hero" class="nav-dot active" aria-label="Hero"></a>
-    <a href="#about" class="nav-dot" aria-label="About"></a>
-    <a href="#sessions" class="nav-dot" aria-label="Sessions"></a>
-    <a href="#who-this-is-for" class="nav-dot" aria-label="Who this is for"></a>
-    <a href="#inquire" class="nav-dot" aria-label="Inquire"></a>
+    {navSections.map((section, index) => (
+      <a href={section.href} class={index === 0 ? "nav-dot active" : "nav-dot"} aria-label={section.label}></a>
+    ))}
   </nav>
 
   <!-- About Section (First after hero) -->
   <section id="about" class="section snap-section about-section">
+    <!-- Background Image -->
+    <div class="about-background">
+      <img
+        src="https://images.unsplash.com/photo-1511207538754-e8555f2bc187?q=80&w=927&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
+      />
+    </div>
+
     <div class="about-container">
       <div class="about-image">
         <img src="/aylan_tree.jpg" alt="Francesco Mello" />
       </div>
 
       <div class="about-content">
-        <p>
-          I'm Francesco Mello, a practitioner offering <span class="text-accent">somatic work</span> focused on nervous system regulation and integration.
-        </p>
+        <p>I'm Francesco Mello, a practitioner offering <span class="text-accent-light">somatic work</span> focused on nervous system regulation and integration.</p>
+        <p>In a world tangled in chronic overthinking, this work invites you to return to sensation and to Self, the heart-belly place of deep knowing.</p>
+        <p>I guide individuals through the gentle unwinding of patterns held in the autonomic nervous system. Because overwhelm isn't what happens to us, but what happens inside of us as a result, this work tends directly to the residue—the protective patterns that once kept us safe but now shroud our aliveness.</p>
+        <p>Through integrative, body-led sessions, we begin to learn the language of your nervous system. We create space for what was once held in tension to move, soften, and release.</p>
+        <p>In the space that emerges, we reconnect with your aliveness and a deeper sense of self—the core of you that lives beneath the imprint of survival.</p>
 
-        <p>
-          In a world tangled in chronic overthinking, this work invites you to return to sensation and to Self, the heart-belly place of deep knowing.
-        </p>
-
-        <p>
-          I guide individuals through the gentle unwinding of patterns held in the autonomic nervous system. Because overwhelm isn't what happens to us, but what happens inside of us as a result, this work tends directly to the residue—the protective patterns that once kept us safe but now shroud our aliveness.
-        </p>
-
-        <p>
-          Through integrative, body-led sessions, we begin to learn the language of your nervous system. We create space for what was once held in tension to move, soften, and release.
-        </p>
-
-        <p>
-          In the space that emerges, we reconnect with your aliveness and a deeper sense of self—the core of you that lives beneath the imprint of survival.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- What This Is Section -->
-  <section id="what-this-is" class="section bg-warm">
-    <div class="container">
-      <div class="content-center space-y-10">
-        <p class="text-large">
-          This is healing-oriented, body-based work focused on the nervous
-          system. We track present-moment sensation and support regulation
-          through pacing, attunement, and (when appropriate) gentle, sustained
-          touch. Rather than forcing release or insight, sessions create the
-          conditions for the system to settle and reorganize naturally.
-        </p>
-
-        <div class="space-y-3">
-          <p class="text-secondary">
-            One-on-one only. No groups.
-          </p>
-          <p class="text-secondary">
-            Experiential and body-based, not performance-based.
-          </p>
-          <p class="text-secondary">
-            Client-led pacing. Nothing is forced.
-          </p>
+        <div class="section-cta">
+          <a href="/about" class="section-button">About</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How Sessions Unfold Section -->
-  <section id="how-it-works" class="section bg-cream">
-    <div class="container">
-      <div class="content-center">
-        <h2 class="mb-12">How sessions unfold</h2>
-
-        <div class="space-y-6">
-          <p>Brief arrival and check-in (what's present in the body lately)</p>
-          <p>Grounding and orientation to safety and the room</p>
-          <p>Tracking sensation and nervous system shifts in real time</p>
-          <p>Titration and pacing to stay within capacity</p>
-          <p>
-            Closing integration and resourcing to support what unfolds after
-            session
-          </p>
-        </div>
-
-        <p class="mt-10 text-secondary">
-          You remain in control of pace and depth throughout.
-        </p>
-      </div>
-    </div>
-  </section>
 
   <!-- Sessions Section -->
-  <section id="sessions" class="section snap-section bg-sand">
+  <section id="sessions" class="section snap-section sessions-section">
+    <!-- Background Image -->
+    <div class="sessions-background">
+      <img
+        src="https://images.unsplash.com/photo-1517495306984-f84210f9daa8?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
+      />
+    </div>
+
     <div class="container">
       <div class="content-large">
-        <h2 class="mb-16">Sessions</h2>
+        <h2 class="mb-16 text-white">Sessions</h2>
 
         <div class="grid-2">
-          <!-- Session Type A -->
-          <div class="card space-y-3 py-8 px-10">
-            <h3 class="font-serif">
-              Somatic Regulation & Integration (Non-Touch)
-            </h3>
-            <p class="text-secondary">
-              A guided, body-based session without physical contact. We work
-              with attention, sensation, and nervous system pacing to support
-              regulation, capacity, and integration. This is ideal if you want
-              somatic work in a seated format or prefer non-touch sessions.
-            </p>
-          </div>
-
-          <!-- Session Type B -->
-          <div class="card space-y-3 py-8 px-10">
-            <h3 class="font-serif">Somatic Point-Holding (Touch-Based)</h3>
-            <p class="text-secondary">
-              A table-based session using gentle, sustained manual contact to
-              support co-regulation and parasympathetic settling. Touch is used
-              as containment and support — not manipulation or treatment. The
-              session follows the body's internal cues in stillness and
-              attunement.
-            </p>
-          </div>
+          {sessionTypes.map((sessionType) => (
+            <div class="card-dark space-y-3 py-8 px-10">
+              <h3 class="font-serif text-white">
+                {sessionType.name}
+              </h3>
+              <p class="text-light">
+                {sessionType.description}
+              </p>
+            </div>
+          ))}
         </div>
 
-        <p
-          class="mt-12 text-secondary"
-        >
-          Rates and availability shared upon inquiry.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Who This Is For Section -->
-  <section id="who-this-is-for" class="section snap-section bg-white">
-    <div class="container">
-      <div class="content-center">
-        <h2 class="mb-12">Who this work supports</h2>
-
-        <p class="text-large mb-8">
-          This work is often supportive for people who feel stuck in chronic
-          stress patterns, overwhelm, shutdown, or disconnection from the body —
-          especially when insight and talk alone haven't created lasting change.
-        </p>
-
-        <div class="space-y-4">
-          <p class="text-secondary">
-            Chronic stress, tension, or nervous system overwhelm
-          </p>
-          <p class="text-secondary">
-            Feeling "stuck in your head" or disconnected from sensation
-          </p>
-          <p class="text-secondary">
-            Difficulty settling, resting, or feeling safe in the body
-          </p>
-          <p class="text-secondary">
-            Wanting a contained, one-on-one space for embodied healing
-          </p>
+        <div class="section-cta">
+          <a href="/sessions" class="section-button">Sessions</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Scope Section -->
-  <section id="scope" class="section bg-warm">
-    <div class="container">
-      <div class="content-center">
-        <h2 class="mb-12">Scope</h2>
-
-        <p class="text-large mb-8">
-          This work is not psychotherapy or medical treatment. I do not diagnose
-          or treat mental illness. Sessions are healing-oriented and body-based,
-          focused on regulation, capacity, and integration.
-        </p>
-
-        <p class="text-secondary">
-          If you are currently in acute crisis or need clinical mental health
-          care, I may recommend working alongside a licensed provider.
-        </p>
-      </div>
-    </div>
-  </section>
 
   <!-- Training Section -->
-  <section id="training" class="section bg-cream">
+  <section id="training" class="section snap-section training-section">
+    <!-- Background Image -->
+    <div class="training-background">
+      <img
+        src="https://images.unsplash.com/photo-1511207538754-e8555f2bc187?q=80&w=927&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
+      />
+    </div>
+
     <div class="container">
       <div class="content-center">
-        <h2 class="mb-10">Training & Background</h2>
+        <h2 class="mb-10 text-white">Training & Background</h2>
 
         <div class="space-y-3 content-medium">
-          <p>Somatic Institute — Somatic Integration & Point-Holding</p>
-          <p>
-            Mindfulness-Based Stress Reduction (MBSR) — Insight LA Meditation
-            Center
-          </p>
-          <p>
-            Advanced nervous system regulation & vagal toning - SHEBreath Echoes of Safety
-            Program
-          </p>
-          <p>Qigong Instructor training — Fang Yuan TaiChi Centre (China)</p>
+          {credentials.map((item) => (
+            <p class="text-light">{item}</p>
+          ))}
+        </div>
+
+        <div class="section-cta mt-12">
+          <a href="/approach" class="section-button section-button-light">Approach</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Setting Section -->
-  <section id="setting" class="section bg-sand">
-    <div class="container">
-      <div class="content-center">
-        <h2 class="mb-10">Setting</h2>
-        <p class="text-large">
-          Sessions are offered by appointment in a private, quiet studio
-          environment. Details are shared after scheduling.
-        </p>
-      </div>
-    </div>
-  </section>
 
   <!-- Testimonials Section -->
-  <section id="testimonials" class="section bg-white">
+  <section id="testimonials" class="section snap-section testimonials-section">
+    <!-- Background Image -->
+    <div class="testimonials-background">
+      <img
+        src="https://images.unsplash.com/photo-1517495306984-f84210f9daa8?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
+      />
+    </div>
+
     <div class="container">
       <div class="content-center">
-        <h2 class="mb-14">Words from clients</h2>
+        <h2 class="mb-14 text-white">Words from clients</h2>
 
-        <div
-          class="content-medium text-secondary"
-        >
-          <p>
-            Testimonials will be added here as the practice grows. Early work is
-            referral-based and grounded in trust.
-          </p>
-        </div>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-        <!-- Example testimonial structure (commented out for when you have testimonials)
-        <div class="space-y-8">
-          <div class="card py-10 px-12">
-            <p class="text-large">"Testimonial text here..."</p>
-            <p class="text-secondary">— First Name L.</p>
+        <div class="testimonial-container">
+          <button class="testimonial-nav-btn prev-btn" aria-label="Previous testimonial">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <div class="swiper testimonial-swiper">
+            <div class="swiper-wrapper">
+              {testimonials.map((testimonial) => (
+                <div class="swiper-slide">
+                  <div class="testimonial-card">
+                    <div class="testimonial-content">
+                      <p class="testimonial-quote">"{testimonial.quote}"</p>
+                      <p class="testimonial-author">— {testimonial.author}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
+
+          <button class="testimonial-nav-btn next-btn" aria-label="Next testimonial">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
         </div>
-        -->
+
+        <div class="swiper-pagination testimonial-pagination"></div>
       </div>
     </div>
   </section>
 
+  <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
   <!-- Contact/Inquiry Section -->
-  <section id="inquire" class="section snap-section bg-warm">
+  <section id="inquire" class="section snap-section inquire-section">
+    <!-- Background Image -->
+    <div class="inquire-background">
+      <img
+        src="https://images.unsplash.com/photo-1511207538754-e8555f2bc187?q=80&w=927&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
+      />
+    </div>
+
     <div class="container">
       <div class="content-medium">
-        <h2 class="mb-8 text-center">Inquire</h2>
+        <h2 class="mb-8 text-center text-white">Inquire</h2>
 
-        <p class="text-large mb-12 text-secondary text-center">
-          If you're interested in working together, send a brief note about what
-          you're looking for and your general availability. I'll respond with
-          next steps, rates, and scheduling options.
+        <p class="text-large mb-12 text-light text-center">
+          If you're interested in working together, send a brief note about what you're looking for and your general availability. I'll respond with next steps, rates, and scheduling options.
         </p>
 
         <!-- Netlify Form -->
@@ -333,22 +254,17 @@ import "../styles/global.css";
           </p>
 
           <div>
-            <label for="name">Name</label
-            >
+            <label for="name">Name</label>
             <input type="text" id="name" name="name" required />
           </div>
 
           <div>
-            <label for="email"
-              >Email</label
-            >
+            <label for="email">Email</label>
             <input type="email" id="email" name="email" required />
           </div>
 
           <div>
-            <label for="session-type"
-              >Preferred session type</label
-            >
+            <label for="session-type">Preferred session type</label>
             <select id="session-type" name="session-type" required>
               <option value="">Select an option</option>
               <option value="non-touch">Non-touch</option>
@@ -357,22 +273,9 @@ import "../styles/global.css";
             </select>
           </div>
 
-          <div>
-            <label for="availability"
-              >Availability</label
-            >
-            <input
-              type="text"
-              id="availability"
-              name="availability"
-              placeholder="e.g., Weekday mornings, Tuesday/Thursday afternoons"
-            />
-          </div>
 
           <div>
-            <label for="message"
-              >Message</label
-            >
+            <label for="message">Message</label>
             <textarea
               id="message"
               name="message"
@@ -381,9 +284,9 @@ import "../styles/global.css";
             ></textarea>
           </div>
 
-          <button type="submit" class="button"
-            >Send inquiry</button
-          >
+          <button type="submit" class="button">
+            Send inquiry
+          </button>
         </form>
       </div>
     </div>
@@ -392,9 +295,7 @@ import "../styles/global.css";
   <!-- Footer -->
   <footer class="py-14 bg-cream">
     <div class="container">
-      <div
-        class="footer-content"
-      >
+      <div class="footer-content">
         <p class="font-serif">© The Somatic Space — Francesco Mello</p>
         <p class="italic font-serif">
           This work is not psychotherapy or medical treatment.
@@ -416,47 +317,104 @@ import "../styles/global.css";
     z-index: 0;
   }
 
+  .hero-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 1;
+  }
+
   .hero-background img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  .hero-logo {
+  /* Unified Navigation */
+  .unified-nav {
     position: absolute;
-    top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 20;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 2rem 0;
   }
 
-  .hero-logo a {
+  .nav-content {
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    flex-shrink: 0;
+  }
+
+  .nav-logo a {
     display: flex;
     align-items: center;
     justify-content: center;
     background: white;
-    padding: 0.25rem;
+    width: 140px;
+    height: 140px;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-    width: 160px;
-    height: 160px;
   }
 
-  .hero-logo img {
-    display: block;
+  .nav-logo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
   }
 
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .nav-link {
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding-bottom: 0.25rem;
+    transition: opacity 0.2s ease;
+    letter-spacing: 0.02em;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-link:hover {
+    opacity: 0.7;
+  }
+
+  .nav-link.active {
+    border-bottom-color: white;
+  }
+
   @media (max-width: 768px) {
-    .hero-logo {
-      top: 1rem;
+    .unified-nav {
+      padding: 1rem 0;
     }
 
-    .hero-logo a {
-      width: 120px;
-      height: 120px;
-      padding: 0.25rem;
+    .nav-content {
+      padding: 0 1rem;
+    }
+
+    .nav-logo a {
+      width: 100px;
+      height: 100px;
+    }
+
+    .nav-links {
+      gap: 1.25rem;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
     }
   }
 
@@ -475,12 +433,14 @@ import "../styles/global.css";
     .hero-content {
       padding-left: 8rem;
       padding-right: 4rem;
+      padding-top: 12rem;
     }
   }
 
   @media (min-width: 1024px) {
     .hero-content {
       padding-left: 10rem;
+      padding-top: 14rem;
     }
   }
 
@@ -499,7 +459,7 @@ import "../styles/global.css";
 
   .hero-title {
     color: white;
-    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-size: clamp(2.25rem, 6vw, 4rem);
     font-weight: 700;
     letter-spacing: -0.02em;
     line-height: 1.1;
@@ -525,22 +485,23 @@ import "../styles/global.css";
     text-align: left;
   }
 
-  .hero-cta {
+  .hero-cta-link {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
     color: white;
-    font-size: 1.125rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 400;
     transition: opacity 0.2s ease;
     text-align: left;
+    margin-top: 1rem;
   }
 
-  .hero-cta:hover {
+  .hero-cta-link:hover {
     opacity: 0.7;
   }
 
-  .hero-cta svg {
+  .hero-cta-link svg {
     width: 1.25rem;
     height: 1.25rem;
   }
@@ -767,16 +728,77 @@ import "../styles/global.css";
     margin-bottom: 0.5rem;
     font-size: 0.875rem;
     font-weight: 500;
+    color: white;
+  }
+
+  .inquire-section input,
+  .inquire-section textarea,
+  .inquire-section select {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .inquire-section input:focus,
+  .inquire-section textarea:focus,
+  .inquire-section select:focus {
+    background: white;
+    border-color: white;
   }
 
   .button {
     width: 100%;
+    background: white;
+    color: var(--color-text-primary);
+    border: 2px solid white;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .button:hover {
+    background: transparent;
+    color: white;
   }
 
   @media (min-width: 640px) {
     .button {
       width: auto;
     }
+  }
+
+  /* Section CTA Buttons */
+  .section-cta {
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+
+  .section-button {
+    display: inline-block;
+    background: white;
+    color: var(--color-text-primary);
+    border: 2px solid white;
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .section-button:hover {
+    background: transparent;
+    color: white;
+  }
+
+  .section-button-light {
+    background: transparent;
+    color: white;
+  }
+
+  .section-button-light:hover {
+    background: white;
+    color: var(--color-text-primary);
   }
 
   /* Background colors */
@@ -823,12 +845,34 @@ import "../styles/global.css";
     line-height: 1.65;
   }
 
-  /* About Section */
+  /* About Section with Background */
   .about-section {
-    background-color: #f5ebe5;
+    position: relative;
+  }
+
+  .about-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .about-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+  }
+
+  .about-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .about-container {
+    position: relative;
+    z-index: 10;
     max-width: 1200px;
     margin: 0 auto;
     padding: 3rem 2rem;
@@ -854,6 +898,7 @@ import "../styles/global.css";
     width: 100%;
     height: auto;
     display: block;
+    border-radius: 0.5rem;
   }
 
   @media (min-width: 1024px) {
@@ -872,15 +917,155 @@ import "../styles/global.css";
   .about-content p {
     font-size: clamp(1rem, 2vw, 1.125rem);
     line-height: 1.7;
-    color: var(--color-text-primary);
+    color: white;
     text-align: left;
     max-width: 100%;
     margin: 0;
   }
 
+  /* Sessions Section with Background */
+  .sessions-section {
+    position: relative;
+  }
+
+  .sessions-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .sessions-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+  }
+
+  .sessions-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sessions-section .container {
+    position: relative;
+    z-index: 10;
+  }
+
+  .card-dark {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    text-align: center;
+  }
+
+  .text-light {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Testimonials Section with Background */
+  .testimonials-section {
+    position: relative;
+  }
+
+  .testimonials-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .testimonials-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+  }
+
+  .testimonials-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .testimonials-section .container {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Training Section with Background */
+  .training-section {
+    position: relative;
+  }
+
+  .training-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .training-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+  }
+
+  .training-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .training-section .container {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Inquire Section with Background */
+  .inquire-section {
+    position: relative;
+  }
+
+  .inquire-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .inquire-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+  }
+
+  .inquire-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .inquire-section .container {
+    position: relative;
+    z-index: 10;
+  }
+
   .text-accent {
     color: #d4524d;
     font-weight: 500;
+  }
+
+  .text-accent-light {
+    color: #fca5a5;
+    font-weight: 500;
+  }
+
+  .text-white {
+    color: white;
   }
 
   /* Scroll Snap Sections */
@@ -949,9 +1134,142 @@ import "../styles/global.css";
     background: var(--color-text-primary);
     border-color: var(--color-text-primary);
   }
+
+  /* Testimonial Section */
+  .testimonial-container {
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .testimonial-swiper {
+    flex: 1;
+    position: relative;
+  }
+
+  .testimonial-card {
+    padding: 3.5rem 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 0.5rem;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .testimonial-content {
+    text-align: center;
+  }
+
+  .testimonial-quote {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: white;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+  }
+
+  .testimonial-nav-btn {
+    flex-shrink: 0;
+    width: 3.5rem;
+    height: 3.5rem;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .testimonial-nav-btn svg {
+    width: 28px;
+    height: 28px;
+    stroke-width: 2;
+  }
+
+  .testimonial-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.35);
+    transform: scale(1.08);
+  }
+
+  .testimonial-pagination {
+    text-align: center;
+  }
+
+  .testimonial-pagination .swiper-pagination-bullet {
+    width: 0.625rem;
+    height: 0.625rem;
+    background: rgba(255, 255, 255, 0.4);
+    opacity: 1;
+    transition: all 0.3s ease;
+    margin: 0 0.35rem;
+  }
+
+  .testimonial-pagination .swiper-pagination-bullet-active {
+    background: white;
+    transform: scaleX(2);
+    border-radius: 0.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .testimonial-container {
+      gap: 1rem;
+    }
+
+    .testimonial-card {
+      padding: 2.5rem 2rem;
+      min-height: 240px;
+    }
+
+    .testimonial-nav-btn {
+      width: 3rem;
+      height: 3rem;
+    }
+
+    .testimonial-nav-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .testimonial-quote {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .testimonial-nav-btn {
+      display: none;
+    }
+
+    .testimonial-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .testimonial-container {
+      margin-bottom: 2rem;
+    }
+  }
 </style>
 
 <script>
+  // Clear hash on page load to always start at top
+  if (window.location.hash) {
+    history.replaceState(null, '', window.location.pathname);
+    window.scrollTo(0, 0);
+  }
+
   // Update active navigation dot on scroll
   function updateActiveDot() {
     const sections = document.querySelectorAll('.snap-section');
@@ -970,16 +1288,24 @@ import "../styles/global.css";
         }
 
         // Update dot color based on section background
+        // Dots should be dark only for truly light sections (no background images)
         const isLight = section.classList.contains('bg-white') ||
                        section.classList.contains('bg-cream') ||
                        section.classList.contains('bg-warm') ||
                        section.classList.contains('bg-sand');
 
+        const hasDarkBackground = section.classList.contains('about-section') ||
+                                 section.classList.contains('sessions-section') ||
+                                 section.classList.contains('training-section') ||
+                                 section.classList.contains('testimonials-section') ||
+                                 section.classList.contains('inquire-section') ||
+                                 section.classList.contains('hero');
+
         navDots.forEach(dot => {
-          if (isLight) {
-            dot.classList.add('dark');
-          } else {
+          if (hasDarkBackground) {
             dot.classList.remove('dark');
+          } else if (isLight) {
+            dot.classList.add('dark');
           }
         });
       }
@@ -991,4 +1317,30 @@ import "../styles/global.css";
 
   // Update on load
   window.addEventListener('load', updateActiveDot);
+
+  // Initialize Swiper for testimonials
+  window.addEventListener('load', () => {
+    const swiper = new Swiper('.testimonial-swiper', {
+      loop: true,
+      autoplay: {
+        delay: 7000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.testimonial-pagination',
+        clickable: true,
+      },
+      speed: 600,
+      slidesPerView: 1,
+    });
+
+    // Connect custom navigation buttons
+    document.querySelectorAll('.prev-btn').forEach(btn => {
+      btn.addEventListener('click', () => swiper.slidePrev());
+    });
+
+    document.querySelectorAll('.next-btn').forEach(btn => {
+      btn.addEventListener('click', () => swiper.slideNext());
+    });
+  });
 </script>

@@ -2,7 +2,14 @@
 
 ## Project Overview
 
-This is a minimalist, calm, high-trust brochure website for somatic practitioner Francesco Mello. The design emphasizes restraint, generous whitespace, and a grounded, non-hype tone.
+This is a minimalist, single-page brochure website for somatic practitioner Francesco Mello.
+
+**Core Technical Goals:**
+- Calm, restrained design with generous whitespace
+- Single-scroll experience with full-height snap sections
+- Fast, lightweight (Astro static site)
+- Forms handled via Netlify (no third-party services)
+- Grounded, non-hype tone throughout all content
 
 ## Critical Rules
 
@@ -97,29 +104,24 @@ src/
 
 **DO NOT** create new folders or files unless explicitly needed.
 
-## Content Structure
+## Site Purpose and Architecture
 
-All content lives in `src/pages/index.astro` in these sections:
+**Main Goal:** A minimalist, single-page brochure site that builds trust through restraint, clarity, and grounded language. The site should guide potential clients to understanding the work and booking sessions without pressure tactics.
 
-1. Hero (above the fold)
-2. What This Is (orientation)
-3. How Sessions Unfold (process)
-4. Sessions (offerings - non-touch & point-holding)
-5. Who This Is For (audience)
-6. Scope + Boundaries (legal protection)
-7. Training (credentials)
-8. Setting (location without address)
-9. Testimonials (empty initially)
-10. About (personal but not trauma-dump)
-11. Contact/Inquiry (Netlify form)
+**Technical Architecture:**
+- Single-page scroll experience with snap sections
+- Content lives in `src/pages/index.astro`
+- Data abstracted to `src/content/data.js` where applicable
+- Sections use full-height viewport with background images
+- Navigation via scroll or section dots (fixed sidebar)
 
 ### When Editing Content
 
-- Maintain the existing section order
 - Preserve the grounded, body-based language
 - Keep sections concise (avoid long paragraphs)
 - Use bullets for clarity when listing items
 - Respect the "no hype" rule
+- Sections are clearly marked in the code with comments
 
 ## Forms
 
@@ -174,18 +176,17 @@ All content lives in `src/pages/index.astro` in these sections:
 
 ### "Change the colors"
 - Read `src/styles/global.css`
-- Update CSS variables in `@theme`
+- Update CSS variables or color values
 - Done. Don't run anything.
 
-### "Add a testimonial"
-- Read `src/pages/index.astro`
-- Find testimonials section (~line 217)
-- Uncomment structure and add content
+### "Add/update content"
+- Read the relevant file (`src/pages/index.astro` or `src/content/data.js`)
+- Make targeted edits
 - Done. Don't run anything.
 
 ### "Add an image"
 - Ask where the image file is
-- Update markup in `src/pages/index.astro`
+- Update markup in the relevant file
 - Remind them to place image in `public/`
 - Done. Don't run anything.
 

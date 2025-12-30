@@ -1,0 +1,436 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Approach | The Somatic Space"
+  description="A detailed look at the principles and methods that guide somatic work at The Somatic Space."
+>
+  <main class="approach-page">
+    <!-- Navigation -->
+    <nav class="page-nav">
+      <div class="nav-container">
+        <a href="/" class="logo-link">
+          <img src="/the_somatic_space_logo.svg" alt="The Somatic Space" />
+        </a>
+        <div class="nav-links">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/sessions" class="nav-link">Sessions</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/approach" class="nav-link active">Approach</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Approach</h1>
+        <p class="header-description">
+          How we work together: principles, pacing, and the body as primary.
+        </p>
+      </div>
+    </section>
+
+    <!-- Principles -->
+    <section class="principles-section">
+      <div class="container">
+        <h2>Core Principles</h2>
+        <div class="principles-grid">
+          <div class="principle-card">
+            <h3>The Body Knows</h3>
+            <p>
+              Your nervous system holds information that cognition can't access. Sessions honor what the body shows, not what the mind thinks should happen. This work isn't about overriding your system—it's about learning to listen to it.
+            </p>
+          </div>
+          <div class="principle-card">
+            <h3>Pacing Over Progress</h3>
+            <p>
+              Healing doesn't follow a linear path. We move at the speed your nervous system can integrate, not the speed your mind wants to go. Pushing creates resistance. Pacing creates capacity.
+            </p>
+          </div>
+          <div class="principle-card">
+            <h3>Presence, Not Protocol</h3>
+            <p>
+              There's no script. Sessions unfold based on what's alive in the moment—what sensations arise, where attention goes, what the body needs to complete or release. The practitioner follows, not leads.
+            </p>
+          </div>
+          <div class="principle-card">
+            <h3>Contact Without Agenda</h3>
+            <p>
+              Touch (when used) is a form of relational contact, not treatment. It offers containment and co-regulation, allowing your system to settle in the presence of safe, attuned connection.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Method -->
+    <section class="method-section">
+      <div class="container">
+        <h2>How Sessions Unfold</h2>
+        <div class="method-content">
+          <div class="method-step">
+            <h3>Orienting & Resourcing</h3>
+            <p>
+              We begin by establishing a baseline—noticing where you are, what sensations are present, and finding places of relative ease or groundedness in your body. This builds the internal capacity to meet what's harder.
+            </p>
+          </div>
+          <div class="method-step">
+            <h3>Tracking Activation</h3>
+            <p>
+              As material arises (sensation, emotion, memory, activation), we slow down and track it. Not to analyze or fix, but to allow your nervous system to complete what it started—discharge, settle, integrate.
+            </p>
+          </div>
+          <div class="method-step">
+            <h3>Building Capacity</h3>
+            <p>
+              Over time, your window of tolerance expands. What once felt overwhelming becomes bearable. What was numb becomes available. This happens through titration—small, digestible doses of sensation and activation.
+            </p>
+          </div>
+          <div class="method-step">
+            <h3>Integration</h3>
+            <p>
+              Sessions end with time to settle and integrate. The nervous system needs space to reorganize around what's shifted. We don't rush the process or push for closure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What This Isn't -->
+    <section class="not-section">
+      <div class="container">
+        <h2>What This Isn't</h2>
+        <div class="not-content">
+          <p>
+            <strong>This isn't talk therapy.</strong> While conversation happens, the focus is on felt experience, not narrative or cognitive reframing.
+          </p>
+          <p>
+            <strong>This isn't massage or bodywork.</strong> Touch (when used) isn't about releasing tension or treating symptoms. It's about nervous system regulation and relational attunement.
+          </p>
+          <p>
+            <strong>This isn't a quick fix.</strong> Somatic work takes time. Patterns held in the body for years don't resolve in a single session. Healing happens in layers.
+          </p>
+          <p>
+            <strong>This isn't spiritual bypassing.</strong> We don't transcend the body or avoid what's difficult. We meet it, track it, and allow it to move through.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who Benefits -->
+    <section class="benefits-section">
+      <div class="container">
+        <h2>Who This Work Serves</h2>
+        <div class="benefits-grid">
+          <div class="benefit-item">
+            <p>People who feel stuck in patterns of hypervigilance, shutdown, or chronic activation</p>
+          </div>
+          <div class="benefit-item">
+            <p>Those who've done talk therapy and felt something was still missing</p>
+          </div>
+          <div class="benefit-item">
+            <p>Anyone experiencing disconnection from their body or numbing of sensation</p>
+          </div>
+          <div class="benefit-item">
+            <p>People navigating developmental trauma or attachment wounding</p>
+          </div>
+          <div class="benefit-item">
+            <p>Those seeking a body-based approach to nervous system regulation</p>
+          </div>
+          <div class="benefit-item">
+            <p>Anyone wanting to build capacity to feel without being overwhelmed</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="page-cta">
+      <div class="container">
+        <h2>Explore Sessions</h2>
+        <p>See detailed information about session formats and rates.</p>
+        <a href="/sessions" class="cta-button">View Sessions</a>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  @import '../styles/global.css';
+
+  .approach-page {
+    min-height: 100vh;
+    background-color: var(--color-cream);
+  }
+
+  /* Navigation */
+  .page-nav {
+    background: white;
+    border-bottom: 1px solid var(--color-accent-light);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-container {
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    width: 120px;
+    height: 120px;
+  }
+
+  .logo-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .nav-link {
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding-bottom: 0.25rem;
+    transition: color 0.2s ease;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-link:hover {
+    color: var(--color-accent);
+  }
+
+  .nav-link.active {
+    border-bottom-color: var(--color-text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .nav-container {
+      padding: 0 1rem;
+    }
+
+    .logo-link {
+      width: 90px;
+      height: 90px;
+    }
+
+    .nav-links {
+      gap: 1.25rem;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+    }
+  }
+
+  /* Header */
+  .page-header {
+    padding: 4rem 0 3rem;
+    background-color: var(--bg-warm);
+  }
+
+  .page-header h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .header-description {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 65ch;
+  }
+
+  /* Principles Section */
+  .principles-section {
+    padding: 5rem 0;
+  }
+
+  .principles-section h2 {
+    margin-bottom: 3rem;
+  }
+
+  .principles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 68rem;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .principles-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+  }
+
+  .principle-card {
+    padding: 2.5rem 2rem;
+    background: var(--bg-sand);
+    border-left: 3px solid var(--color-accent);
+  }
+
+  .principle-card h3 {
+    font-size: 1.375rem;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+
+  .principle-card p {
+    text-align: left;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 0;
+    max-width: none;
+  }
+
+  /* Method Section */
+  .method-section {
+    padding: 5rem 0;
+    background-color: var(--bg-warm);
+  }
+
+  .method-section h2 {
+    margin-bottom: 3rem;
+  }
+
+  .method-content {
+    max-width: 56rem;
+    margin: 0 auto;
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .method-step h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+
+  .method-step p {
+    text-align: left;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 0;
+    max-width: none;
+  }
+
+  /* Not Section */
+  .not-section {
+    padding: 5rem 0;
+  }
+
+  .not-section h2 {
+    margin-bottom: 3rem;
+  }
+
+  .not-content {
+    max-width: 56rem;
+    margin: 0 auto;
+    display: grid;
+    gap: 1.75rem;
+  }
+
+  .not-content p {
+    text-align: left;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin: 0;
+    max-width: none;
+    font-size: 1.0625rem;
+  }
+
+  .not-content strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  /* Benefits Section */
+  .benefits-section {
+    padding: 5rem 0;
+    background-color: var(--bg-sand);
+  }
+
+  .benefits-section h2 {
+    margin-bottom: 3rem;
+  }
+
+  .benefits-grid {
+    max-width: 56rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .benefits-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  .benefit-item {
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid var(--color-accent-light);
+  }
+
+  .benefit-item p {
+    text-align: left;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0;
+    max-width: none;
+    font-size: 1rem;
+  }
+
+  /* CTA */
+  .page-cta {
+    padding: 5rem 0 6rem;
+    text-align: center;
+  }
+
+  .page-cta h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .page-cta p {
+    margin-bottom: 2.5rem;
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--color-text-primary);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background: var(--color-accent);
+  }
+</style>

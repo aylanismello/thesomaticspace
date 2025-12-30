@@ -1,0 +1,310 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { sessionTypes } from '../content/data.js';
+---
+
+<BaseLayout
+  title="Sessions | The Somatic Space"
+  description="Detailed information about somatic sessions: point-holding and regulation work for nervous system integration."
+>
+  <main class="sessions-page">
+    <!-- Navigation -->
+    <nav class="page-nav">
+      <div class="nav-container">
+        <a href="/" class="logo-link">
+          <img src="/the_somatic_space_logo.svg" alt="The Somatic Space" />
+        </a>
+        <div class="nav-links">
+          <a href="/" class="nav-link">Home</a>
+          <a href="/sessions" class="nav-link active">Sessions</a>
+          <a href="/about" class="nav-link">About</a>
+          <a href="/approach" class="nav-link">Approach</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Sessions</h1>
+        <p class="header-description">
+          Working with the body's innate capacity for regulation, integration, and healing.
+        </p>
+      </div>
+    </section>
+
+    <!-- Session Details -->
+    <section class="session-details">
+      <div class="container">
+        {sessionTypes.map((sessionType, index) => (
+          <div class="session-detail-card">
+            <h2>{sessionType.name}</h2>
+            <p class="session-description">{sessionType.description}</p>
+
+            <div class="session-info">
+              {index === 0 ? (
+                <>
+                  <h3>What to Expect</h3>
+                  <p>
+                    In non-touch sessions, you remain seated and clothed. We work through verbal guidance,
+                    attention tracking, and somatic awareness. The focus is on noticing sensation,
+                    building capacity, and supporting the nervous system to regulate without force or manipulation.
+                  </p>
+                  <p>
+                    Sessions move at your pace. There's no agenda beyond what emerges in real time.
+                    This work is about presence, not protocol.
+                  </p>
+                </>
+              ) : (
+                <>
+                  <h3>What to Expect</h3>
+                  <p>
+                    Point-holding sessions take place on a massage table. You remain clothed in comfortable layers.
+                    Touch is gentle, sustained, and non-invasive—used as a form of contact and containment,
+                    not manipulation. The practitioner's hands follow the body's internal cues in stillness.
+                  </p>
+                  <p>
+                    These sessions support parasympathetic settling and allow the nervous system to soften
+                    in the presence of safe, attuned contact. The work is slow and respectful of your system's pace.
+                  </p>
+                </>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Rates -->
+    <section class="rates-section">
+      <div class="container">
+        <h2>Rates</h2>
+        <div class="rates-grid">
+          <div class="rate-card">
+            <h3>Somatic Point-Holding<br />(Touch-Based)</h3>
+            <p class="rate-price">$200</p>
+            <p class="rate-duration">90 minutes</p>
+          </div>
+          <div class="rate-card">
+            <h3>Somatic Regulation & Integration<br />(Non-Touch)</h3>
+            <p class="rate-price">$180</p>
+            <p class="rate-duration">90 minutes</p>
+          </div>
+        </div>
+        <p class="rates-note">
+          Sessions are offered in-person only. Sliding scale available on request.
+        </p>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  @import '../styles/global.css';
+
+  .sessions-page {
+    min-height: 100vh;
+    background-color: var(--color-cream);
+  }
+
+  /* Navigation */
+  .page-nav {
+    background: white;
+    border-bottom: 1px solid var(--color-accent-light);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-container {
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    width: 120px;
+    height: 120px;
+  }
+
+  .logo-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .nav-link {
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding-bottom: 0.25rem;
+    transition: color 0.2s ease;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-link:hover {
+    color: var(--color-accent);
+  }
+
+  .nav-link.active {
+    border-bottom-color: var(--color-text-primary);
+  }
+
+  @media (max-width: 768px) {
+    .nav-container {
+      padding: 0 1rem;
+    }
+
+    .logo-link {
+      width: 90px;
+      height: 90px;
+    }
+
+    .nav-links {
+      gap: 1.25rem;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+    }
+  }
+
+  /* Header */
+  .page-header {
+    padding: 5rem 0 3rem;
+    background-color: var(--bg-warm);
+  }
+
+  .page-header h1 {
+    margin-bottom: 1.5rem;
+  }
+
+  .header-description {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 65ch;
+  }
+
+  /* Session Details */
+  .session-details {
+    padding: 5rem 0;
+  }
+
+  .session-detail-card {
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid var(--color-accent-light);
+  }
+
+  .session-detail-card:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .session-detail-card h2 {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin-bottom: 1.5rem;
+    color: var(--color-text-primary);
+  }
+
+  .session-description {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    color: var(--color-text-secondary);
+  }
+
+  .session-info {
+    max-width: 68ch;
+    margin: 0 auto;
+  }
+
+  .session-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .session-info p {
+    margin-bottom: 1.25rem;
+    text-align: left;
+    line-height: 1.7;
+  }
+
+  /* Rates Section */
+  .rates-section {
+    padding: 5rem 0 6rem;
+    background-color: var(--bg-sand);
+  }
+
+  .rates-section h2 {
+    margin-bottom: 3rem;
+  }
+
+  .rates-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 56rem;
+    margin: 0 auto 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .rates-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+  }
+
+  .rate-card {
+    background: white;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    border: 1px solid var(--color-accent-light);
+  }
+
+  .rate-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+    color: var(--color-text-primary);
+  }
+
+  .rate-price {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .rate-duration {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .rates-note {
+    text-align: center;
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    max-width: 50ch;
+  }
+</style>
