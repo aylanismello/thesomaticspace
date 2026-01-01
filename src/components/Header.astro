@@ -1,0 +1,120 @@
+---
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = "/" } = Astro.props;
+---
+
+<nav class="unified-nav">
+  <div class="nav-content">
+    <div class="nav-logo">
+      <a href="/">
+        <img src="/the_somatic_space_logo.svg" alt="The Somatic Space" />
+      </a>
+    </div>
+    <div class="nav-links">
+      <a href="/" class={currentPath === "/" ? "nav-link active" : "nav-link"}>Home</a>
+      <a href="/sessions" class={currentPath === "/sessions" ? "nav-link active" : "nav-link"}>Sessions</a>
+      <a href="/about" class={currentPath === "/about" ? "nav-link active" : "nav-link"}>About</a>
+      <a href="/approach" class={currentPath === "/approach" ? "nav-link active" : "nav-link"}>Approach</a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .unified-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 2rem 0;
+  }
+
+  .nav-content {
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    flex-shrink: 0;
+  }
+
+  .nav-logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    width: 140px;
+    height: 140px;
+    padding: 0;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05);
+  }
+
+  .nav-logo img {
+    width: 85%;
+    height: 85%;
+    object-fit: contain;
+    padding: 0;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+
+  .nav-link {
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding-bottom: 0.25rem;
+    transition: opacity 0.2s ease;
+    letter-spacing: 0.02em;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav-link:hover {
+    opacity: 0.7;
+  }
+
+  .nav-link.active {
+    border-bottom-color: white;
+  }
+
+  @media (max-width: 768px) {
+    .unified-nav {
+      padding: 0.75rem 0;
+    }
+
+    .nav-content {
+      padding: 0 0.75rem;
+    }
+
+    .nav-logo a {
+      width: 70px;
+      height: 70px;
+      padding: 0;
+    }
+
+    .nav-logo img {
+      width: 85%;
+      height: 85%;
+      padding: 0;
+    }
+
+    .nav-links {
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      font-size: 0.75rem;
+    }
+  }
+</style>

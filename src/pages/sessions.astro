@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
 import { sessionTypes } from '../content/data.js';
 ---
 
@@ -8,23 +9,17 @@ import { sessionTypes } from '../content/data.js';
   description="Detailed information about somatic sessions: point-holding and regulation work for nervous system integration."
 >
   <main class="sessions-page">
-    <!-- Navigation -->
-    <nav class="page-nav">
-      <div class="nav-container">
-        <a href="/" class="logo-link">
-          <img src="/the_somatic_space_logo.svg" alt="The Somatic Space" />
-        </a>
-        <div class="nav-links">
-          <a href="/" class="nav-link">Home</a>
-          <a href="/sessions" class="nav-link active">Sessions</a>
-          <a href="/about" class="nav-link">About</a>
-          <a href="/approach" class="nav-link">Approach</a>
-        </div>
-      </div>
-    </nav>
-
     <!-- Header -->
     <section class="page-header">
+      <div class="header-background">
+        <img
+          src="https://images.unsplash.com/photo-1517495306984-f84210f9daa8?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+        />
+      </div>
+
+      <Header currentPath="/sessions" />
+
       <div class="container">
         <h1>Sessions</h1>
         <p class="header-description">
@@ -96,6 +91,88 @@ import { sessionTypes } from '../content/data.js';
         </p>
       </div>
     </section>
+
+    <!-- Inquire Section -->
+    <section id="inquire" class="inquire-section">
+      <div class="inquire-background">
+        <img
+          src="https://images.unsplash.com/photo-1511207538754-e8555f2bc187?q=80&w=927&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+        />
+      </div>
+
+      <div class="container">
+        <div class="content-medium">
+          <h2 class="text-white">Inquire</h2>
+
+          <p class="text-large text-light inquire-intro">
+            If you're interested in working together, send a brief note about what you're looking for and your general availability. I'll respond with next steps, rates, and scheduling options.
+          </p>
+
+          <form
+            name="inquiry"
+            method="POST"
+            action="/success"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            class="inquiry-form"
+          >
+            <input type="hidden" name="form-name" value="inquiry" />
+            <p class="hidden">
+              <label>
+                Don't fill this out if you're human: <input name="bot-field" />
+              </label>
+            </p>
+
+            <div>
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div>
+              <label for="session-type">Preferred session type</label>
+              <select id="session-type" name="session-type" required>
+                <option value="">Select an option</option>
+                <option value="non-touch">Non-touch</option>
+                <option value="point-holding">Point-holding</option>
+                <option value="not-sure">Not sure</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                required
+                placeholder="Tell me a bit about what you're looking for..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-button">
+              Send inquiry
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <div class="container">
+        <div class="footer-content">
+          <p class="font-serif">© The Somatic Space — Francesco Mello</p>
+          <p class="italic font-serif">
+            This work is not psychotherapy or medical treatment.
+          </p>
+        </div>
+      </div>
+    </footer>
   </main>
 </BaseLayout>
 
@@ -107,96 +184,48 @@ import { sessionTypes } from '../content/data.js';
     background-color: var(--color-cream);
   }
 
-  /* Navigation */
-  .page-nav {
-    background: white;
-    border-bottom: 1px solid var(--color-accent-light);
-    padding: 1.5rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .nav-container {
-    max-width: 90rem;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .logo-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-    width: 120px;
-    height: 120px;
-  }
-
-  .logo-link img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    align-items: center;
-  }
-
-  .nav-link {
-    color: var(--color-text-primary);
-    font-size: 1rem;
-    font-weight: 500;
-    text-decoration: none;
-    padding-bottom: 0.25rem;
-    transition: color 0.2s ease;
-    border-bottom: 2px solid transparent;
-  }
-
-  .nav-link:hover {
-    color: var(--color-accent);
-  }
-
-  .nav-link.active {
-    border-bottom-color: var(--color-text-primary);
-  }
-
-  @media (max-width: 768px) {
-    .nav-container {
-      padding: 0 1rem;
-    }
-
-    .logo-link {
-      width: 90px;
-      height: 90px;
-    }
-
-    .nav-links {
-      gap: 1.25rem;
-    }
-
-    .nav-link {
-      font-size: 0.875rem;
-    }
-  }
-
   /* Header */
   .page-header {
-    padding: 5rem 0 3rem;
-    background-color: var(--bg-warm);
+    position: relative;
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 0 4rem;
+  }
+
+  .header-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .header-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+  }
+
+  .header-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .page-header .container {
+    position: relative;
+    z-index: 10;
   }
 
   .page-header h1 {
     margin-bottom: 1.5rem;
+    color: white;
   }
 
   .header-description {
     font-size: 1.125rem;
-    color: var(--color-text-secondary);
+    color: rgba(255, 255, 255, 0.9);
     max-width: 65ch;
   }
 
@@ -306,5 +335,157 @@ import { sessionTypes } from '../content/data.js';
     font-size: 0.9375rem;
     color: var(--color-text-secondary);
     max-width: 50ch;
+    margin: 0 auto;
+  }
+
+  /* Inquire Section */
+  .inquire-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 5rem 0;
+  }
+
+  .inquire-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .inquire-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+  }
+
+  .inquire-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .inquire-section .container {
+    position: relative;
+    z-index: 10;
+  }
+
+  .content-medium {
+    max-width: 56rem;
+    margin: 0 auto;
+  }
+
+  .text-white {
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .text-large {
+    font-size: 1.125rem;
+  }
+
+  .text-light {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .inquire-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .inquiry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .inquiry-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: white;
+  }
+
+  .inquiry-form input,
+  .inquiry-form textarea,
+  .inquiry-form select {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+  }
+
+  .inquiry-form input:focus,
+  .inquiry-form textarea:focus,
+  .inquiry-form select:focus {
+    background: white;
+    border-color: white;
+    outline: none;
+  }
+
+  .inquiry-form textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+
+  .submit-button {
+    width: 100%;
+    background: white;
+    color: var(--color-text-primary);
+    border: 2px solid white;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+  }
+
+  .submit-button:hover {
+    background: transparent;
+    color: white;
+  }
+
+  @media (min-width: 640px) {
+    .submit-button {
+      width: auto;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /* Footer */
+  .page-footer {
+    padding: 3.5rem 0;
+    background-color: var(--bg-cream);
+    border-top: 1px solid var(--color-accent-light);
+  }
+
+  .footer-content {
+    text-align: center;
+  }
+
+  .footer-content > * + * {
+    margin-top: 0.75rem;
+  }
+
+  .footer-content {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+  }
+
+  .font-serif {
+    font-family: var(--font-family-serif);
+  }
+
+  .italic {
+    font-style: italic;
   }
 </style>

@@ -36,12 +36,3 @@ export const sessionTypes = [
     description: "A table-based session using gentle, sustained manual contact to support co-regulation and parasympathetic settling. Touch is used as containment and support — not manipulation or treatment. The session follows the body's internal cues in stillness and attunement.",
   },
 ];
-
-export const navSections = [
-  { href: "#hero", label: "Hero" },
-  { href: "#about", label: "About" },
-  { href: "#sessions", label: "Sessions" },
-  { href: "#training", label: "Training" },
-  { href: "#testimonials", label: "Testimonials" },
-  { href: "#inquire", label: "Inquire" },
-];
